@@ -12,4 +12,6 @@ class UserEmail {
       throw const FormatException('Invalid email format');
     }
   }
+
+  String get value => _value;
 }
