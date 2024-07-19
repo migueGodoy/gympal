@@ -16,4 +16,20 @@ class User {
       throw ArgumentError('Name cannot be empty');
     }
   }
+
+  fromPrimitives(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      name: json['name'],
+      email: UserEmail(json['email']),
+    );
+  }
+
+  toPrimitives() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email.value,
+    };
+  }
 }
