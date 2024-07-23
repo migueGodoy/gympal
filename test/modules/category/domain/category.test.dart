@@ -1,9 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gympal/modules/category/domain/category.dart';
 
+import 'category.mother.dart';
+
 void main() {
   group('Category Model Tests', () {
-    test('Category is correctly instantiated with id, name, and description', () {
+    test('should instantiate correctly with id, name, and description', () {
       const id = '1';
       const name = 'Fitness';
       const description = 'Fitness related activities';
@@ -16,11 +18,15 @@ void main() {
     });
 
     test('should throw ArgumentError if id is empty', () {
-      expect(() => Category(id: '', name: 'Fitness', description: 'Fitness related activities'), throwsArgumentError);
+      expect(() => CategoryMother.withoutId(), throwsArgumentError);
     });
 
     test('should throw ArgumentError if name is empty', () {
-      expect(() => Category(id: '1', name: '', description: 'Fitness related activities'), throwsArgumentError);
+      expect(() => CategoryMother.withoutName(), throwsArgumentError);
+    });
+
+    test('should instantiate correctly even if description is empty', () {
+      expect(() => CategoryMother.withoutDescription(), returnsNormally);
     });
 
     test('toMap returns a map with id, name, and description', () {
