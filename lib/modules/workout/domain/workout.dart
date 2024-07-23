@@ -1,9 +1,9 @@
-import '../../exercise/domain/exercise.dart';
+import 'package:gympal/modules/workout-exercise/domain/workout-exercise.dart';
 
 class WorkOut {
   String id;
   DateTime date;
-  List<Exercise> exercises;
+  List<WorkoutExercise> exercises;
   int duration; // in minutes
   String? notes;
 
@@ -15,11 +15,11 @@ class WorkOut {
     this.notes,
   });
 
-  void addExercise(Exercise exercise) {
+  void addExercise(WorkoutExercise exercise) {
     exercises.add(exercise);
   }
 
-  void removeExercise(Exercise exercise) {
+  void removeExercise(WorkoutExercise exercise) {
     exercises.removeWhere((e) => e.id == exercise.id);
   }
 
@@ -45,7 +45,7 @@ class WorkOut {
     return WorkOut(
       id: map['id'],
       date: DateTime.parse(map['date']),
-      exercises: (map['exercises'] as List).map((e) => Exercise.fromMap(e)).toList(),
+      exercises: (map['exercises'] as List).map((e) => WorkoutExercise.fromMap(e)).toList(),
       duration: map['duration'],
       notes: map['notes'],
     );
