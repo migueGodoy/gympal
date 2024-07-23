@@ -1,8 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gympal/modules/users/domain/user.dart';
-import 'package:gympal/modules/users/domain/user-email.dart';
-
-import 'user-email.mother.dart';
 import 'user.mother.dart';
 
 void main() {
