@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() async {
     final CategoryRepository categoryRepository = FirestoreCategoryRepository();
     List<Category> categories = await categoryRepository.getAllCategories();
-    debugPrint();
+
     setState(() {
       _counter++;
     });
